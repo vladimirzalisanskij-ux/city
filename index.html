@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layered Transit City</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="topBar">
+      <div class="group" id="toolGroup">
+        <button data-tool="pan">Панорама</button>
+        <button data-tool="road">Дорога</button>
+        <button data-tool="bridge">Мост</button>
+        <button data-tool="tunnel">Тоннель</button>
+        <button data-tool="metroLine">Линия метро</button>
+        <button data-tool="zone">Зона</button>
+        <button data-tool="building">Здание</button>
+      </div>
+      <div class="group" id="timeGroup">
+        <button id="pauseBtn">Пауза</button>
+        <button data-speed="1">1x</button>
+        <button data-speed="2">2x</button>
+        <button data-speed="4">4x</button>
+      </div>
+      <div class="group" id="layerGroup">
+        <button data-layer-view="high">Высокий</button>
+        <button data-layer-view="mid">Средний</button>
+        <button data-layer-view="low">Низкий</button>
+        <button data-layer-view="combined">Комбинированный</button>
+        <button data-layer-view="transparent">Прозрачный</button>
+      </div>
+      <div class="group" id="viewGroup">
+        <select id="viewModeSelect">
+          <option value="normal">Обычный</option>
+          <option value="traffic">Трафик</option>
+          <option value="speed">Скорость</option>
+          <option value="noise">Шум</option>
+          <option value="happiness">Счастье</option>
+          <option value="services">Службы</option>
+          <option value="education">Образование</option>
+          <option value="landValue">Стоимость земли</option>
+        </select>
+      </div>
+    </header>
+
+    <aside id="leftPanel">
+      <h2>Строительство</h2>
+      <label>Тип дороги
+        <select id="roadTypeSelect"></select>
+      </label>
+      <label>Тип зоны
+        <select id="zoneTypeSelect"></select>
+      </label>
+      <label>Тип здания
+        <select id="buildingTypeSelect"></select>
+      </label>
+      <label>Активный слой
+        <select id="activeLayerSelect">
+          <option value="high">Высокий</option>
+          <option value="mid" selected>Средний</option>
+          <option value="low">Низкий</option>
+        </select>
+      </label>
+      <label>Режим экономики
+        <select id="economyModeSelect">
+          <option value="sandbox">Sandbox</option>
+          <option value="budget">Budget Mode</option>
+        </select>
+      </label>
+      <button id="saveBtn">Сохранить</button>
+      <button id="loadBtn">Загрузить</button>
+      <button id="newMapBtn">Новая карта</button>
+      <label>Шаблон карты
+        <select id="mapTemplateSelect"></select>
+      </label>
+      <h3>Кризисы</h3>
+      <button data-crisis="rushhour">Час пик</button>
+      <button data-crisis="service_failure">Сбой служб</button>
+      <button data-crisis="metro_overload">Перегрузка метро</button>
+    </aside>
+
+    <main id="mainArea">
+      <canvas id="gameCanvas" width="1280" height="720"></canvas>
+      <section id="floatingPanels">
+        <div class="panel" id="hudPanel"></div>
+        <div class="panel" id="statsPanel"></div>
+        <div class="panel" id="issuesPanel"></div>
+      </section>
+    </main>
+
+    <aside id="rightPanel">
+      <h2>Инспектор</h2>
+      <div id="inspectorContent">Выберите жителя или здание.</div>
+      <h2>Транспорт</h2>
+      <div id="transportStats"></div>
+      <h2>Службы</h2>
+      <div id="serviceStats"></div>
+      <h2>Бюджет</h2>
+      <div id="budgetStats"></div>
+    </aside>
+
+    <footer id="bottomBar">
+      <span id="statusText">Готово</span>
+    </footer>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
